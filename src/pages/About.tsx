@@ -5,11 +5,23 @@ import { useSeo } from '../lib/useSeo';
 import portrait from '../assets/founder-portrait.webp';
 import casual from '../assets/founder-casual.webp';
 
-// Everything in [BRACKETS] is yours to write. Nothing here is invented as fact.
+// What the brand promises the customer, in plain words.
 const VALUES = [
-  { n: '01', t: '[VALUE ONE]', d: '[One sentence about something your brand stands for.]' },
-  { n: '02', t: '[VALUE TWO]', d: '[One sentence about how you choose fabrics or makers.]' },
-  { n: '03', t: '[VALUE THREE]', d: '[One sentence about the customer you design for.]' },
+  {
+    n: '01',
+    t: 'Look sharp, feel easy',
+    d: 'Every shirt is picked to look right at the office, at dinner and on the weekend, so getting dressed is the easy part of your day.',
+  },
+  {
+    n: '02',
+    t: 'Sizing made simple',
+    d: 'US and UK sizes are shown side by side on every shirt. Not sure which one? Send us a message and we will help you choose.',
+  },
+  {
+    n: '03',
+    t: 'A real person behind it',
+    d: 'Every message goes straight to the founder. You talk to the person who chose the shirt, not a call centre.',
+  },
 ];
 
 export default function About() {
@@ -27,9 +39,15 @@ export default function About() {
             </p>
           </Reveal>
           <Reveal className="space-y-5 text-mute md:col-span-6 md:col-start-7" delay={120}>
-            <p>[YOUR BRAND STORY — paragraph 1: why you started AURA-CLOTHING.]</p>
-            <p>[Paragraph 2: what makes your shirts different — only claims you can back up.]</p>
-            <p>[Paragraph 3: where you're heading next.]</p>
+            <p>
+              AURA-CLOTHING started with a simple idea: the right shirt changes how a man walks into a room. Hammad Rasool
+              built the brand for men in the USA and UK who want to look put-together without trying too hard.
+            </p>
+            <p>
+              The collection is split into four lines (formal, casual, statement and old money) so you can find your style in
+              seconds. Every shirt is one simple price: $250.
+            </p>
+            <p>This is only the beginning. New designs will join the collection, and every message from you helps decide what comes next.</p>
           </Reveal>
         </div>
       </section>
@@ -61,9 +79,11 @@ export default function About() {
           <Reveal className="md:col-span-3" delay={220}>
             <p className="font-display text-3xl font-bold uppercase leading-none">Hammad Rasool</p>
             <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.25em] text-mute">
-              Founder · {SITE.name} · Lahore, Pakistan
+              Founder · {SITE.name}
             </p>
-            <p className="mt-6 text-sm text-mute">[A line from you about why you started the brand.]</p>
+            <p className="mt-6 text-sm text-mute">
+              Hammad started AURA-CLOTHING to help men feel confident in what they wear, every day of the week.
+            </p>
           </Reveal>
         </div>
       </section>

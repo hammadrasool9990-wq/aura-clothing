@@ -48,10 +48,12 @@ export default function Story() {
         </h2>
       </div>
       {/* the background dots gather into the founder's portrait inside this box */}
-      <div id="dot-portrait" className="relative aspect-square w-full md:col-span-5" aria-label="Portrait of Hammad Rasool drawn in dots" role="img">
-        <span className="absolute bottom-0 right-0 font-mono text-[10px] uppercase tracking-[0.3em] text-mute">
-          Hammad Rasool · Founder
-        </span>
+      <div className="md:col-span-5">
+        <div id="dot-portrait" className="relative aspect-square w-full" aria-label="Portrait of Hammad Rasool drawn in dots" role="img" />
+        <div className="mt-4 text-center">
+          <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-aura">Founder</p>
+          <p className="mt-1 font-display text-4xl font-bold tracking-wide text-bone md:text-5xl">Hammad Rasool</p>
+        </div>
       </div>
     </section>
   );

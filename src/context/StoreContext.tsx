@@ -31,18 +31,19 @@ const StoreContext = createContext<StoreValue | null>(null);
 const SYMBOL: Record<Currency, string> = { USD: '$', GBP: '£' };
 
 export function StoreProvider({ children }: { children: ReactNode }) {
-  const [currency, setCurrency] = useState<Currency>(() => load<Currency>('aura.currency', 'USD'));
+  // Prices are shown in USD only (one fixed price per shirt). To add GBP later,
+  // set priceGBP on products and bring back the toggle in Header.tsx.
+  const [currency, setCurrency] = useState<Currency>('USD');
   const [cart, setCart] = useState<CartItem[]>(() => load<CartItem[]>('aura.cart', []));
   const [cartOpen, setCartOpen] = useState(false);
 
-  useEffect(() => save('aura.currency', currency), [currency]);
   useEffect(() => save('aura.cart', cart), [cart]);
 
   const value = useMemo<StoreValue>(() => {
     const priceOf = (p: Product) => (currency === 'USD' ? p.priceUSD : p.priceGBP);
     const formatPrice = (p: Product) => {
       const v = priceOf(p);
-      return v === null ? '[PRICE]' : `${SYMBOL[currency]}${v.toFixed(2)}`;
+      return v === null ? 'Price on request' : `${SYMBOL[currency]}${Number.isInteger(v) ? v : v.toFixed(2)}`;
     };
 
     let subtotal: number | null = 0;

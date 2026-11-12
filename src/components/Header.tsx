@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { NAV, SITE } from '../data/site';
-import { useStore, type Currency } from '../context/StoreContext';
+import { useStore } from '../context/StoreContext';
 
 export default function Header() {
-  const { cartCount, setCartOpen, currency, setCurrency } = useStore();
+  const { cartCount, setCartOpen } = useStore();
   const [scrolled, setScrolled] = useState(false);
   const [menu, setMenu] = useState(false);
   const { pathname } = useLocation();
@@ -29,34 +29,22 @@ export default function Header() {
           <span className="ml-1 hidden font-mono text-[10px] font-normal tracking-[0.3em] text-mute sm:inline">CLOTHING</span>
         </Link>
 
-        <nav className="hidden items-center gap-5 lg:flex xl:gap-7" aria-label="Main">
+        <nav className="hidden items-center gap-4 lg:flex xl:gap-5" aria-label="Main">
           {NAV.map((n) => (
             <NavLink
               key={n.to}
               to={n.to}
               end={n.to === '/'}
               className={({ isActive }) =>
-                `group font-mono text-xs uppercase tracking-[0.2em] transition ${isActive ? 'text-bone' : 'text-mute hover:text-bone'}`
+                `group whitespace-nowrap font-mono text-[11px] uppercase tracking-[0.14em] transition ${isActive ? 'text-bone' : 'text-mute hover:text-bone'}`
               }
             >
-              <span className="text-aura/70">{n.num}/</span> {n.label}
+              <span className="hidden text-aura/70 2xl:inline">{n.num}/ </span>{n.label}
             </NavLink>
           ))}
         </nav>
 
         <div className="flex items-center gap-2 md:gap-4">
-          <div className="flex rounded-full border border-line p-0.5 font-mono text-[10px]" role="group" aria-label="Currency">
-            {(['USD', 'GBP'] as Currency[]).map((c) => (
-              <button
-                key={c}
-                onClick={() => setCurrency(c)}
-                aria-pressed={currency === c}
-                className={`rounded-full px-2.5 py-1 transition ${currency === c ? 'bg-bone text-ink' : 'text-mute hover:text-bone'}`}
-              >
-                {c}
-              </button>
-            ))}
-          </div>
           <button
             onClick={() => setCartOpen(true)}
             className="relative flex h-10 w-10 items-center justify-center rounded-full border border-line transition hover:border-aura"

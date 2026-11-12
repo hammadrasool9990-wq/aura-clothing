@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { NAV, SITE } from '../data/site';
+import { NAV, SITE, SOCIAL } from '../data/site';
 import { Marquee } from './ui';
 
 export default function Footer() {
@@ -35,11 +35,13 @@ export default function Footer() {
                 </a>
               </li>
             ))}
-            <li>
-              <a href={SITE.instagram} target="_blank" rel="noreferrer" className="link-underline">
-                Instagram {SITE.instagramHandle}
-              </a>
-            </li>
+            {SOCIAL.map((x) => (
+              <li key={x.label}>
+                <a href={x.href} target="_blank" rel="noreferrer" className="link-underline">
+                  {x.label}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

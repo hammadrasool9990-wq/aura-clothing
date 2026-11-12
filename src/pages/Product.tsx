@@ -162,14 +162,11 @@ export default function Product() {
             )}
             {guide && (
               <div className="mt-4 overflow-x-auto rounded-xl border border-line">
-                {/* SIZE GUIDE PLACEHOLDER — fill in real measurements from your manufacturer */}
                 <table className="w-full text-left font-mono text-xs">
                   <thead className="bg-ink2 text-mute">
                     <tr>
-                      <th className="px-4 py-3 font-normal">US</th>
-                      <th className="px-4 py-3 font-normal">UK</th>
-                      <th className="px-4 py-3 font-normal">Chest (in)</th>
-                      <th className="px-4 py-3 font-normal">Chest (cm)</th>
+                      <th className="px-4 py-3 font-normal">US size</th>
+                      <th className="px-4 py-3 font-normal">UK size</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -177,12 +174,17 @@ export default function Product() {
                       <tr key={s.us} className="border-t border-line">
                         <td className="px-4 py-3">{s.us}</td>
                         <td className="px-4 py-3">{s.uk}</td>
-                        <td className="px-4 py-3 text-mute">[—]</td>
-                        <td className="px-4 py-3 text-mute">[—]</td>
                       </tr>
                     ))}
                   </tbody>
                 </table>
+                <p className="border-t border-line px-4 py-3 text-xs text-mute">
+                  Need exact measurements?{' '}
+                  <Link to="/contact" className="link-underline text-aura">
+                    Ask us
+                  </Link>{' '}
+                  and we will send them for your size.
+                </p>
               </div>
             )}
           </div>

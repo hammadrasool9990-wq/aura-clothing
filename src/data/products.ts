@@ -2,11 +2,10 @@
 // PRODUCTS — edit this list to add / change products.
 //
 // Nothing here is invented as fact: prices, descriptions and fabric
-// details are left as null / [PLACEHOLDER] for you to fill in.
+// details describe only what is visible in each photo.
 // Style names are suggestions — rename them freely.
 //
-// Prices: set BOTH priceUSD and priceGBP yourself (no exchange rate is
-// guessed). While a price is null the site shows "[PRICE]".
+// Prices: every shirt is SHIRT_PRICE_USD (below). Prices are shown in USD.
 // ─────────────────────────────────────────────────────────────
 
 import houndstoothSwatch from '../assets/fabrics/houndstooth.jpg';
@@ -27,15 +26,21 @@ import embroideredSwatch from '../assets/fabrics/embroidered.jpg';
 import embroideredLook from '../assets/looks/embroidered.webp';
 import geometricSwatch from '../assets/fabrics/geometric.jpg';
 import geometricLook from '../assets/looks/geometric.webp';
+import oxfordSwatch from '../assets/fabrics/oxford.jpg';
+import oxfordLook from '../assets/looks/oxford.webp';
+import bengalSwatch from '../assets/fabrics/bengal.jpg';
+import bengalLook from '../assets/looks/bengal.webp';
+import ecruSwatch from '../assets/fabrics/ecru.jpg';
+import ecruLook from '../assets/looks/ecru.webp';
 import checkLook from '../assets/founder-casual.webp';
 
-export type Category = 'Formal' | 'Casual' | 'Statement';
+export type Category = 'Formal' | 'Casual' | 'Statement' | 'Old Money';
 
 // Fabric pattern drawn on the 3D shirt and the product card.
 export type Pattern =
   | 'oxford' | 'poplin' | 'check' | 'stripe' | 'twill' | 'chambray' | 'linen'
   | 'houndstooth' | 'geometric' | 'gingham' | 'floral' | 'embroidered'
-  | 'pinstripe' | 'satin' | 'denim';
+  | 'pinstripe' | 'satin' | 'denim' | 'bengal';
 
 export interface ProductColor {
   name: string; // shown to customers
@@ -69,10 +74,13 @@ const SIZES = [
   { us: 'XXL', uk: 'XXL' },
 ];
 
-const DESC = '[PRODUCT DESCRIPTION — write 1–2 sentences about this shirt]';
-const DETAILS = ['[FABRIC / MATERIAL]', '[FIT — e.g. slim, regular]', '[CARE INSTRUCTIONS]'];
+// Every shirt has one fixed price. Change it here and it updates everywhere.
+export const SHIRT_PRICE_USD = 250;
 
-// Ten shirts in three lines: Formal, Casual and Statement.
+// Shown on each product page (fabric content and care: add from your supplier's label).
+const details = (pattern: string, line: string) => [`Pattern: ${pattern}`, `Line: ${line}`, 'Sizes: S to XXL, US and UK labels'];
+
+// Shirts in four lines: Formal, Casual, Statement and Old Money.
 export const PRODUCTS: Product[] = [
   {
     id: 'sand-houndstooth',
@@ -81,12 +89,12 @@ export const PRODUCTS: Product[] = [
     pattern: 'houndstooth',
     swatch: houndstoothSwatch,
     look: houndstoothLook,
-    priceUSD: null,
+    priceUSD: SHIRT_PRICE_USD,
     priceGBP: null,
     colors: [{ name: 'Sand', hex: '#D9C3A0' }],
     sizes: SIZES,
-    description: DESC,
-    details: DETAILS,
+    description: 'A sand and cream houndstooth that looks sharp with chinos or under a blazer. Roll the sleeves for a relaxed evening look.',
+    details: details('Houndstooth', 'Formal'),
     featured: true,
   },
   {
@@ -96,12 +104,12 @@ export const PRODUCTS: Product[] = [
     pattern: 'pinstripe',
     swatch: pinstripeSwatch,
     look: pinstripeLook,
-    priceUSD: null,
+    priceUSD: SHIRT_PRICE_USD,
     priceGBP: null,
     colors: [{ name: 'Ivory / Navy', hex: '#F2F1EC' }],
     sizes: SIZES,
-    description: DESC,
-    details: DETAILS,
+    description: 'Crisp ivory with fine navy pinstripes. The classic office shirt that also looks right under a jacket on a night out.',
+    details: details('Navy pinstripe', 'Formal'),
     featured: true,
   },
   {
@@ -111,12 +119,12 @@ export const PRODUCTS: Product[] = [
     pattern: 'satin',
     swatch: satinSwatch,
     look: satinLook,
-    priceUSD: null,
+    priceUSD: SHIRT_PRICE_USD,
     priceGBP: null,
     colors: [{ name: 'Black', hex: '#141418' }],
     sizes: SIZES,
-    description: DESC,
-    details: DETAILS,
+    description: 'A deep black shirt with a soft sheen. Wear it under a navy or black blazer for dinners, events and photos.',
+    details: details('Solid black', 'Formal'),
     featured: true,
   },
   {
@@ -126,12 +134,12 @@ export const PRODUCTS: Product[] = [
     pattern: 'gingham',
     swatch: ginghamSwatch,
     look: ginghamLook,
-    priceUSD: null,
+    priceUSD: SHIRT_PRICE_USD,
     priceGBP: null,
     colors: [{ name: 'Black / White', hex: '#8C8884' }],
     sizes: SIZES,
-    description: DESC,
-    details: DETAILS,
+    description: 'Black and white gingham with clean, bold checks. Easy with white trousers, dark jeans or under a blazer.',
+    details: details('Black and white gingham', 'Casual'),
     featured: true,
   },
   {
@@ -141,12 +149,12 @@ export const PRODUCTS: Product[] = [
     pattern: 'linen',
     swatch: linenSwatch,
     look: linenLook,
-    priceUSD: null,
+    priceUSD: SHIRT_PRICE_USD,
     priceGBP: null,
     colors: [{ name: 'Sage', hex: '#8FA287' }],
     sizes: SIZES,
-    description: DESC,
-    details: DETAILS,
+    description: 'A calm sage green with a natural slub texture. Made for warm days, rolled sleeves and light trousers.',
+    details: details('Sage slub', 'Casual'),
     featured: true,
   },
   {
@@ -156,12 +164,12 @@ export const PRODUCTS: Product[] = [
     pattern: 'chambray',
     swatch: denimSwatch,
     look: denimLook,
-    priceUSD: null,
+    priceUSD: SHIRT_PRICE_USD,
     priceGBP: null,
     colors: [{ name: 'Indigo', hex: '#3D5A86' }],
     sizes: SIZES,
-    description: DESC,
-    details: DETAILS,
+    description: 'Mid-wash indigo with a twill weave. Wear it on its own or as a layer over a white tee.',
+    details: details('Indigo twill', 'Casual'),
     featured: true,
   },
   {
@@ -170,12 +178,12 @@ export const PRODUCTS: Product[] = [
     category: 'Casual',
     pattern: 'check',
     look: checkLook,
-    priceUSD: null,
+    priceUSD: SHIRT_PRICE_USD,
     priceGBP: null,
     colors: [{ name: 'Sand Check', hex: '#EDE6D8', accents: ['#C9A36C', '#3B4F6E'] }],
     sizes: SIZES,
-    description: DESC,
-    details: DETAILS,
+    description: 'A warm sand, navy and white check. The relaxed weekend shirt for reading, coffee and long afternoons.',
+    details: details('Sand and navy check', 'Casual'),
     featured: true,
   },
   {
@@ -185,12 +193,12 @@ export const PRODUCTS: Product[] = [
     pattern: 'floral',
     swatch: floralSwatch,
     look: floralLook,
-    priceUSD: null,
+    priceUSD: SHIRT_PRICE_USD,
     priceGBP: null,
     colors: [{ name: 'Navy Floral', hex: '#233A73' }],
     sizes: SIZES,
-    description: DESC,
-    details: DETAILS,
+    description: 'Navy with white palm leaves and hibiscus flowers. A holiday shirt that turns heads anywhere.',
+    details: details('Tropical floral', 'Statement'),
     featured: true,
   },
   {
@@ -200,12 +208,12 @@ export const PRODUCTS: Product[] = [
     pattern: 'embroidered',
     swatch: embroideredSwatch,
     look: embroideredLook,
-    priceUSD: null,
+    priceUSD: SHIRT_PRICE_USD,
     priceGBP: null,
     colors: [{ name: 'Emerald', hex: '#1F3A2A' }],
     sizes: SIZES,
-    description: DESC,
-    details: DETAILS,
+    description: 'Deep emerald with gold geometric embroidery running down the front. A statement for weddings, parties and Eid.',
+    details: details('Gold embroidered bands', 'Statement'),
     featured: true,
   },
   {
@@ -215,23 +223,69 @@ export const PRODUCTS: Product[] = [
     pattern: 'geometric',
     swatch: geometricSwatch,
     look: geometricLook,
-    priceUSD: null,
+    priceUSD: SHIRT_PRICE_USD,
     priceGBP: null,
     colors: [{ name: 'Ivory', hex: '#ECE8E2' }],
     sizes: SIZES,
-    description: DESC,
-    details: DETAILS,
+    description: 'Ivory with a small diamond print in taupe and burgundy. Smart enough for a blazer, relaxed enough for the weekend.',
+    details: details('Diamond geometric print', 'Statement'),
+    featured: true,
+  },
+  {
+    id: 'heritage-oxford',
+    name: 'Heritage Oxford',
+    category: 'Old Money',
+    pattern: 'oxford',
+    swatch: oxfordSwatch,
+    look: oxfordLook,
+    priceUSD: SHIRT_PRICE_USD,
+    priceGBP: null,
+    colors: [{ name: 'Pale Blue', hex: '#B9CDE6' }],
+    sizes: SIZES,
+    description: 'A pale blue oxford with a soft basket weave. The quiet-luxury classic: tuck it into cream trousers and add loafers.',
+    details: details('Oxford weave', 'Old Money'),
+    featured: true,
+  },
+  {
+    id: 'regatta-bengal',
+    name: 'Regatta Bengal Stripe',
+    category: 'Old Money',
+    pattern: 'bengal',
+    swatch: bengalSwatch,
+    look: bengalLook,
+    priceUSD: SHIRT_PRICE_USD,
+    priceGBP: null,
+    colors: [{ name: 'White / Sky', hex: '#F6F5F1' }],
+    sizes: SIZES,
+    description: 'White with bold sky-blue Bengal stripes. Made for summer lunches, sailing weekends and long evenings outdoors.',
+    details: details('Bengal stripe', 'Old Money'),
+    featured: true,
+  },
+  {
+    id: 'ecru-linen',
+    name: 'Ecru Linen',
+    category: 'Old Money',
+    pattern: 'linen',
+    swatch: ecruSwatch,
+    look: ecruLook,
+    priceUSD: SHIRT_PRICE_USD,
+    priceGBP: null,
+    colors: [{ name: 'Ecru', hex: '#E6DCC8' }],
+    sizes: SIZES,
+    description: 'A warm ecru linen with a natural slub. Effortless, understated and right at home on a terrace in the sun.',
+    details: details('Ecru slub', 'Old Money'),
     featured: true,
   },
 ];
 
-export const CATEGORIES: Category[] = ['Formal', 'Casual', 'Statement'];
+export const CATEGORIES: Category[] = ['Formal', 'Casual', 'Statement', 'Old Money'];
 
 // The three shirt lines, each with its own page at /shirts/<slug>
 export const LINES: { slug: string; category: Category; title: string; intro: string }[] = [
   { slug: 'formal', category: 'Formal', title: 'Formal Shirts', intro: 'Sharp, quiet and tailored for the office, the interview and the evening.' },
   { slug: 'casual', category: 'Casual', title: 'Casual Shirts', intro: 'Gingham, linen, denim and check for the days without a dress code.' },
   { slug: 'statement', category: 'Statement', title: 'Statement Shirts', intro: 'Prints and embroidery for the moments you want to be noticed.' },
+  { slug: 'old-money', category: 'Old Money', title: 'Old Money Shirts', intro: 'Oxford, Bengal stripe and linen. Quiet luxury that never needs a logo.' },
 ];
 
 export const getProduct = (id: string | undefined) => PRODUCTS.find((p) => p.id === id);

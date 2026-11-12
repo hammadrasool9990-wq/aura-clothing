@@ -13,8 +13,8 @@ const ITEMS: { title: string; text: string; icon: ReactNode }[] = [
     ),
   },
   {
-    title: 'Three shirt lines',
-    text: 'Formal, casual and statement shirts, each with its own page, so you find your style fast.',
+    title: 'Four shirt lines',
+    text: 'Formal, casual, statement and old money shirts, each with its own page, so you find your style fast.',
     icon: <path d="M4 4h16v16H4zM4 10h16M4 15h16M10 4v16M15 4v16" />,
   },
   {
@@ -33,8 +33,8 @@ const ITEMS: { title: string; text: string; icon: ReactNode }[] = [
     icon: <path d="M4 5h16v11H8l-4 4V5Z" />,
   },
   {
-    title: '[Your fabric standard]',
-    text: '[Write the quality you guarantee — e.g. the cotton you use, how it is stitched, your returns promise.]',
+    title: 'One fair price',
+    text: 'Every AURA shirt is $250. No confusing price tiers, no surprise mark-ups between designs.',
     icon: <path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9L12 3Z" />,
   },
 ];

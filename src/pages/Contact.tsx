@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from 'react';
 import { CopyEmail, DualHeading, Reveal, SectionLabel } from '../components/ui';
 import { SITE } from '../data/site';
+import SocialLinks from '../components/SocialLinks';
 import { sendContact, FormNotConnectedError, type ContactData } from '../lib/forms';
 import { useSeo } from '../lib/useSeo';
 
@@ -47,10 +48,8 @@ export default function Contact() {
               <CopyEmail key={e} email={e} />
             ))}
           </div>
-          <p className="mt-10 font-mono text-[10px] uppercase tracking-[0.25em] text-mute">Social</p>
-          <a href={SITE.instagram} target="_blank" rel="noreferrer" className="link-underline mt-3 inline-block font-display text-2xl">
-            Instagram {SITE.instagramHandle} ↗
-          </a>
+          <p className="mt-10 font-mono text-[10px] uppercase tracking-[0.25em] text-mute">Find me online</p>
+            <SocialLinks />
         </Reveal>
 
         <Reveal delay={120}>

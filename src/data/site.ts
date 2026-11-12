@@ -12,6 +12,8 @@ export const SITE = {
   inboxEmail: 'aurevon9990@gmail.com',
   instagram: 'https://www.instagram.com/aurevon9990/',
   instagramHandle: '@aurevon9990',
+  linkedin: 'https://www.linkedin.com/in/hammad-rasool6767/',
+  portfolio: 'https://hammadrasool.vercel.app/',
 };
 
 export const NAV = [
@@ -19,7 +21,15 @@ export const NAV = [
   { to: '/shirts/formal', label: 'Formal', num: '02' },
   { to: '/shirts/casual', label: 'Casual', num: '03' },
   { to: '/shirts/statement', label: 'Statement', num: '04' },
-  { to: '/shop', label: 'Shop all', num: '05' },
-  { to: '/about', label: 'About', num: '06' },
-  { to: '/contact', label: 'Contact', num: '07' },
+  { to: '/shirts/old-money', label: 'Old Money', num: '05' },
+  { to: '/shop', label: 'Shop', num: '06' },
+  { to: '/about', label: 'About', num: '07' },
+  { to: '/contact', label: 'Contact', num: '08' },
+];
+
+// Social / profile links shown in the contact areas and footer
+export const SOCIAL = [
+  { label: 'Instagram', handle: SITE.instagramHandle, href: SITE.instagram },
+  { label: 'LinkedIn', handle: 'Hammad Rasool', href: SITE.linkedin },
+  { label: 'Portfolio', handle: 'hammadrasool.vercel.app', href: SITE.portfolio },
 ];

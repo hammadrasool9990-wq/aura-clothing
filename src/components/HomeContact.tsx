@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { CopyEmail, DualHeading, Reveal, SectionLabel } from './ui';
 import { SITE } from '../data/site';
+import SocialLinks from './SocialLinks';
 
 // Contact section at the end of the home page: both emails, Instagram,
 // and a shortcut to the full contact form.
@@ -26,10 +27,8 @@ export default function HomeContact() {
                 <CopyEmail key={e} email={e} />
               ))}
             </div>
-            <p className="mt-10 font-mono text-[10px] uppercase tracking-[0.25em] text-mute">Follow</p>
-            <a href={SITE.instagram} target="_blank" rel="noreferrer" className="link-underline mt-3 inline-block font-display text-2xl">
-              Instagram {SITE.instagramHandle} ↗
-            </a>
+            <p className="mt-10 font-mono text-[10px] uppercase tracking-[0.25em] text-mute">Find me online</p>
+            <SocialLinks />
           </Reveal>
         </div>
       </div>

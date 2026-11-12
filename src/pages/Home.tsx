@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { PRODUCTS } from '../data/products';
 import { DualHeading, Marquee, Reveal, SectionLabel } from '../components/ui';
 import ProductCard from '../components/ProductCard';
-import Newsletter from '../components/Newsletter';
+import StyleNotes from '../components/StyleNotes';
 import DotField from '../components/DotField';
 import SpaceHero from '../components/SpaceHero';
 import Specialty from '../components/Specialty';
@@ -73,15 +73,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── 07 NEWSLETTER ─────────────────────────────── */}
-        <section className="mx-auto max-w-7xl px-4 py-24 md:px-8">
-          <SectionLabel num="07">Stay in the loop</SectionLabel>
-          <DualHeading text="Join the signal" className="mt-3 text-5xl md:text-8xl" />
-          <p className="mt-6 max-w-md text-mute">Be first to hear about new drops.</p>
-          <div className="mt-8">
-            <Newsletter />
-          </div>
-        </section>
+        {/* ── 07 STYLE NOTES ───────────────────────────── */}
+        <StyleNotes />
 
         {/* ── 08 CONTACT ────────────────────────────────── */}
         <HomeContact />

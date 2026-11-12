@@ -96,9 +96,9 @@ export default function CartDrawer() {
           <div className="border-t border-line p-5">
             <div className="flex justify-between font-mono text-sm uppercase tracking-wider">
               <span className="text-mute">Subtotal</span>
-              <span>{subtotal === null ? '[PRICE]' : `${currencySymbol(currency)}${subtotal.toFixed(2)}`}</span>
+              <span>{subtotal === null ? 'Price on request' : `${currencySymbol(currency)}${subtotal.toLocaleString('en-US')}`}</span>
             </div>
-            <p className="mt-1 text-xs text-mute">Shipping and taxes: [SHIPPING POLICY]</p>
+            <p className="mt-1 text-xs text-mute">Shipping and taxes are confirmed with you before your order is placed.</p>
             {/* PLACEHOLDER CHECKOUT — connect Stripe or Shopify (see README) */}
             <button className="btn-primary mt-4 w-full" onClick={() => setNote(true)}>
               Checkout
